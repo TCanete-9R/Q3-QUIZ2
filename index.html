@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title> QUIZ:2 ONLINE TICKETING CENTER</title>
+    <script>
+        function submitInfo() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            
+            if (name === "" || email === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
+            
+            alert("Please proceed to the next section to continue purchasing your ticket. Thank you!");
+        }
+
+        function calculatePrice() {
+            let seat = document.getElementById("seat").value;
+            let option = document.getElementById("option").value;
+            let price = 0;
+            
+            if (seat === "Patron") {
+                price = option === "Regular" ? 15 : 20;
+            } else {
+                price = option === "Regular" ? 10 : 15;
+            }
+            
+            document.getElementById("ticketPrice").innerHTML = "Ticket Price: $" + price;
+        }
+    </script>
+</head>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Online Ticketing Center</h1>
+        <p class="text-center">Fill out the form below to purchase your ticket.</p>
+        
+        <h5>Personal Information</h5>
+        <form>
+            <label for="name">Complete Name:</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+            
+            <button type="button" class="btn btn-primary mt-3" onclick="submitInfo()">Submit Info</button>
+        </form>
+        
+        <h5 class="mt-4">Ticket Price</h5>
+        <label for="seat">Choose your seat:</label>
+        <select id="seat" class="form-control">
+            <option value="Patron">Patron</option>
+            <option value="Balcony">Balcony</option>
+        </select>
+        
+        <label for="option">Choose an option:</label>
+        <select id="option" class="form-control">
+            <option value="Regular">Regular</option>
+            <option value="VIP">VIP</option>
+        </select>
+        
+        <button type="button" class="btn btn-success mt-3" onclick="calculatePrice()">Check Price</button>
+        <p id="ticketPrice" class="mt-2"></p>
+        
+        <h5 class="mt-4">Print Ticket</h5>
+        <button class="btn btn-info">Print Ticket</button>
+        <button class="btn btn-secondary">Buy More Tickets</button>
+
+        <footer>
+            <hr><p> &#169; AY 2025 | ICT 9-RUBY | QUIZ:2 ONLINE TICKETING CENTER| TARCISIUS JOHN C. CAÑETE</p>
+        </footer>
+    </div>
+    
+</body>
+</html>
